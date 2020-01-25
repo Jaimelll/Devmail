@@ -20,6 +20,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
@@ -64,6 +65,19 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "devmail_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.read_encrypted_secrets = true
+config.action_mailer.default_url_options = { :host => 
+"domain.com" }
+config.action_mailer.perform_deliveries = true
+config.action_mailer.delivery_method = :smtp
+
+config.action_mailer.smtp_settings = {
+ :address => "smtp.gmail.com",
+ :port => 587,
+ :user_name => "jaduran0102@gmail.com",
+ :password => "vanessapaola",
+ :enable_starttls_auto => true
+}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
