@@ -18,7 +18,7 @@ test:
   host: 127.0.0.1
   port: 5432
   database: devt
-  pool: 5
+  pool: 20
   timeout: 5000
 
 production:
